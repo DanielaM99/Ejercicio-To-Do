@@ -1,0 +1,391 @@
+/* Reset Básico */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Un reset esencial para un control consistente del layout. */
+}
+
+/* Estilos Globales del Body */
+body {
+    font-family: "Montserrat", sans-serif; /* Fuente consistente en todo el sitio. */
+    background: linear-gradient(to right, #e0b4e0, #aed6f1); /* Gradiente atractivo para el fondo. */
+}
+
+/* Header */
+.nav{ /* Contenedor de la navegación */
+    width: 100%;
+    height: 100%; /* Nota: 'height: 100%' aquí puede causar problemas si no hay un height definido para el padre o si el contenido es escaso. */
+    background: #faf8f8;
+}
+
+.navbar{ /* Barra de navegación principal */
+    display: flex;
+    justify-content: space-between; /* Alinea elementos a los extremos. */
+    padding: 2em;
+    background: linear-gradient(to right, #e0b4e0, #aed6f1); /* Consistencia con el fondo del body. */
+}
+
+.menu{ /* Lista de enlaces de navegación */
+    display: flex;
+    width: 30%; /* Tamaño fijo del menú. Puede ser problemático en pantallas muy grandes o muy pequeñas. */
+    justify-content: space-around; /* Distribuye los enlaces equitativamente. */
+    position: fixed; /* Mantiene la barra de navegación visible al hacer scroll. */
+    right: 5em;
+}
+
+.menu li{
+    list-style: none; /* Elimina los puntos predeterminados de la lista. */
+}
+
+.menu a{ /* Estilos base para los enlaces de navegación */
+    color: #000;
+    background: transparent;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1em;
+    transition: 0.5s; /* Transición suave para efectos hover. */
+    position: relative;
+}
+
+.menu a:hover{ /* Efecto hover para los enlaces */
+    background: #e0b4e0;
+    letter-spacing: 0.1em; /* Ligero espaciado de letras al pasar el mouse. */
+    box-shadow: 0 0 35px #e0b4e0; /* Sombra al pasar el mouse. */
+}
+
+.menu a::before{ /* Pseudo-elemento para un efecto visual adicional (vacío actualmente, pero reservado). */
+    content: '';
+    position: absolute;
+    inset: 2px;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 5em; /* Define una altura mínima. */
+    padding: 10em;
+}
+
+.home h1 { /* Estilos del título principal en la sección de inicio */
+    color: #ffffffa9;
+    font-size: 8em;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #000000, 0 4px 0 #000000, 0 5px 0 #000000, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(114, 112, 112, 0.117), 0 20px 20px rgba(92, 92, 92, 0.097);
+    /* Efecto de sombra de texto 3D, visualmente impactante. */
+}
+
+/* Media Queries para Home y Header */
+@media (max-width: 768px) {
+    /* Ajustes para tabletas y pantallas medianas */
+    .navbar {
+        flex-direction: column; /* La barra de navegación se apila verticalmente. */
+        align-items: center; 
+        padding: 1em;
+    }
+    .menu {
+        width: 100%; /* El menú ocupa todo el ancho. */
+        position: static; /* Deja de ser fijo para mejor flujo en móvil. */
+        right: auto;
+        margin-top: 1em; 
+        justify-content: center; 
+        flex-wrap: wrap; /* Permite que los elementos del menú salten de línea. */
+    }
+    .menu li { margin: 0.5em; }
+    .menu a { font-size: 0.9em; padding: 8px 15px; }
+    .home { padding: 5em 1em; min-height: auto; }
+    .home h1 { font-size: 4em; } /* Reduce el tamaño del título. */
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para teléfonos móviles */
+    .navbar { padding: 0.5em; }
+    .menu { flex-direction: column; margin-top: 0.5em; }
+    .menu li { margin: 0.3em 0; }
+    .menu a { font-size: 0.8em; padding: 6px 10px; }
+    .home { padding: 3em 0.5em; }
+    .home h1 { font-size: 2.5em; margin-top: 4em; }
+}
+
+/* About Me Section */
+.about{
+    display: grid; /* Utiliza Grid para el layout de la sección "About". */
+    grid-template-columns: repeat(10,1fr); /* 10 columnas de igual ancho. */
+    width: 100%;
+    align-items: center;
+}
+
+.about img{ /* Estilos para la imagen de perfil en la sección "About" */
+    width: 25rem;
+    height: 60%; /* 'height: 60%' puede hacer que la imagen se distorsione o no se muestre completamente si el padre no tiene altura definida. Considera `max-height` o `aspect-ratio`. */
+    grid-column: 2/5; /* Posiciona la imagen en las columnas 2 a 5. */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse. */
+}
+
+.about-info{ /* Contenedor de información de la sección "About" */
+    grid-column: 5/10; /* Posiciona la información en las columnas 5 a 10. */
+    padding: 3em;
+    margin-top:80px;
+}
+
+.about-info h2{ font-size: 2em; color: #000; }
+
+.h2{ list-style: none; letter-spacing: 5px; }
+.h2:first-of-type { animation: showup 4s infinite; } /* Aplica animación a la primera instancia de .h2 (en este caso, "About me"). */
+
+/* Animación de Opacidad para Títulos (Showup) */
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:0;}
+    80% {opacity:1;}
+    100% {opacity:0;} /* Hace que el texto aparezca y luego desaparezca, ideal para efectos de entrada. */
+}
+
+.divider{ /* Separador para la sección "About" */
+    height: 4px;
+    width: 180px;
+    background-color: purple;
+    margin-top: 1rem;
+    margin-bottom: 3em;
+}
+
+.about p{ margin-bottom: 2em; }
+
+.app{ /* Contenedor de iconos de aplicaciones */
+    margin-top: 1.2rem;
+    font-size: 8em; /* Gran tamaño para los iconos. */
+    text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #000000, 0 4px 0 #000000, 0 5px 0 #000000, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(114, 112, 112, 0.117), 0 20px 20px rgba(92, 92, 92, 0.097);
+    /* Sombra similar a la del título principal. */
+}
+
+/* Media Queries para About Me Section */
+@media (max-width: 768px) {
+    /* Ajustes para tabletas */
+    /* ... (Estilos de header repetidos, se recomienda consolidar) ... */
+    .about img { width: 90%; margin-bottom: 1em } /* La imagen ocupa más espacio. */
+    .about-info { padding: 1.5em; }
+    .about-info h2 { font-size: 1.8em; }
+    .divider { width: 150px; }
+    .app { font-size: 4em; } /* Reduce el tamaño de los iconos. */
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para móviles */
+    /* ... (Estilos de header repetidos) ... */
+    .about { padding: 1em; display: flex; /* Cambia a flexbox para un layout de columna. */ }
+    .about img { display: none; } /* Oculta la imagen en pantallas muy pequeñas. */
+    .about-info h2 { font-size: 1.5em; }
+    .divider { width: 150px; }
+    .about p { font-size: 0.9em; justify-content: center; }
+    .app { font-size: 3em; gap: 15px; } /* Añade espacio entre los iconos. */
+    .footer h2 { font-size: 1.2em; }
+    .sotial-network a { font-size: 1.8em; margin: 0 10px; } /* *Corrección sugerida: 'social-network'* */
+}
+
+/* Projects Section */
+.h2-proyects{ /* Estilos para el título animado de proyectos */
+    display: flex;
+    margin-left: 80px;
+    animation: 4s waves infinite; /* Aplica la animación de ondas. */
+    display: inline-block;
+}
+
+.divider1{ /* Separador para la sección de proyectos */
+    height: 4px;
+    width: 135px;
+    background-color: purple;
+    display: flex;
+    margin-left: 80px;
+    margin-bottom: 3em;
+}
+
+/* Animación de Ondas para Títulos (Waves) */
+@keyframes waves{
+    0%, 40%, 100%{ transform: translateY(0px); }
+    20%{ transform: translateY(-30px); } /* El texto se mueve hacia arriba y abajo. */
+}
+
+.proyects{ width: 100%; color: #000; }
+.proyect{ width: 100%; padding: 1em; }
+.proyect h2{ font-size: 2em; }
+
+.proyects .container{ /* Contenedor de las tarjetas de proyectos */
+    width: 80vw;
+    height: 55vh; /* Altura fija, puede causar scroll interno si hay muchos proyectos. */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.card{ /* Estilos base para cada tarjeta de proyecto */
+    width: 300px;
+    color: #fff;
+    height: 400px;
+    background-color: #000000d5;
+    margin: 1.5em;
+}
+
+/* Imágenes de las tarjetas de proyectos (cargadas como background-image) */
+.car-img{ background-image: url(./Img/inventory\ manager.png); background-size: cover; }
+.car-img1{ background-image: url(./Img/calificaciones.png); background-size: cover; }
+.car-img2{ background-image: url(./Img/PruebaRiwi.png); background-size: cover; }
+
+.card-title{ padding: 30px; color: #fff; }
+
+.proyects-links{ display: flex; justify-content: space-evenly; }
+.proyects-links a{ color: #fff; text-decoration: none; }
+.proyects-links a:visited{ color: purple; text-decoration: none; }
+.proyects-links i{ font-size: 2em; overflow-y: hidden; } /* 'overflow-y: hidden' aquí podría ser redundante. */
+
+/* Media Queries para Projects Section */
+@media (max-width: 768px) {
+    /* ... (Estilos de header repetidos) ... */
+    .h2-proyects { margin-left: 20px; font-size: 1em; }
+    .divider1 { margin-left: 20px; }
+    .proyects .container {
+        flex-direction: column; /* Las tarjetas se apilan verticalmente. */
+        height: auto; /* La altura se ajusta automáticamente. */
+        width: 90vw; 
+    }
+    .card { width: 60%; margin: 1em auto; height: auto; } /* Ajusta el ancho de las tarjetas. */
+    .card-title { padding: 15px; }
+    /* ... (Estilos de footer repetidos) ... */
+}
+
+@media (max-width: 480px) {
+    /* ... (Estilos de header repetidos) ... */
+    .h2-proyects { font-size: 1.2em; margin-left: 10px; }
+    .divider1 { width: 100px; margin-left: 10px; }
+    .card { width: 95%; }
+    .card h2 { font-size: 1.2em; }
+    .card p { font-size: 0.9em; }
+    /* ... (Estilos de footer repetidos) ... */
+}
+
+/* Contact Section */
+#contact{ padding-top: 1em; } /* ID vs. Class: En HTML usas #Contact, aquí #contact. Asegúrate de que coincidan. */
+
+.h2-contact span{ /* Estilos para el título animado de contacto */
+    animation: 2s waves infinite; /* Reutiliza la animación de ondas. */
+    display: inline-block;
+    animation-delay: calc(0.1s * var(--n)); /* Retraso para efecto de escritura. */
+}
+
+.contact{ /* Contenedor principal de la sección de contacto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 6em;
+}
+
+.contact h2{ font-size: 3em; }
+
+.divider2{ /* Separador para la sección de contacto */
+    height: 4px;
+    width: 260px;
+    background-color: purple;
+    margin-top: 5px;
+    margin-bottom: 3em;
+}
+
+.container-contact{ /* Contenedor del formulario */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form{ /* Estilos del formulario de contacto */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.form input{ /* Estilos para los campos de entrada de texto */
+    padding: 10px 50px;
+    margin-bottom: 1em;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: #000;
+}
+
+.contact form{ /* Este selector es redundante si ya tienes .form. */
+    justify-items: center;
+}
+
+.form textarea{ /* Estilos para el área de texto del mensaje */
+    width: 30em;
+    height: 150px;
+    background: none;
+    color: #000;
+    padding: 2em;
+    border: 1px solid #000;
+}
+
+.button{ /* Estilos para el botón de enviar */
+    width:90%;
+    height:2em;
+    background: linear-gradient(to left top, #992a9350 50%, #b3377152 50%);
+    border: none;
+    border-radius: 15px;
+    margin: 1em;
+    color:#fff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    font-family: 'Lato'; /* Nota: No has importado la fuente 'Lato', solo 'Montserrat'. */
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0px; /* Redundante con 'padding: 0px;'.seccion-centrada { ... }' */
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+
+button:hover{ /* Efecto hover para el botón */
+    transform: rotate(-3deg) scale(1.1); /* Efecto de rotación y escalado. */
+    box-shadow: 0px 3px 5px #0008;
+}
+
+/* Footer (Estilos generales del pie de página) */
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+}
+
+.footer-content h2{ font-size: 3em; } /* Este selector `.footer-content h2` no coincide con tu HTML, donde el h2 está directamente dentro de `.footer`. */
+
+.sotial-network{ /* Contenedor de los iconos de redes sociales. *Corrección sugerida: 'social-network'* */
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+    margin-top: 1em;
+}
+
+.sotial-network i{ font-size: 2em; color: #000; }
+
+/* Media Queries para Footer (similar a las secciones anteriores) */
+@media (max-width: 768px) {
+    /* ... (Estilos de header y contacto repetidos) ... */
+    .footer h2 { font-size: 1.5em; }
+}
+
+@media (max-width: 480px) {
+    /* ... (Estilos de header y contacto repetidos) ... */
+    .footer { height: 150px; }
+    .footer h2 { font-size: 1.2em; }
+    .sotial-network { width: 150px; }
+    .sotial-network i { font-size: 1.5em; }
+}
