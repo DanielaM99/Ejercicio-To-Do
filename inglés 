@@ -1,0 +1,10 @@
+Download: Head to the official Visual Studio Code website (code.visualstudio.com) and download the installer that matches your operating system (Windows, macOS, or Linux).
+ * Run the Installer: Once downloaded, open the file.
+   * Windows: It's an .exe file. Follow the wizard steps, accepting the terms and conditions.
+   * macOS: It's usually a .zip or .dmg file. If it's a .zip, unzip it and drag the application to your "Applications" folder. If it's a .dmg, open it and drag the application to "Applications."
+   * Linux: This depends on your distribution (typically .deb for Debian/Ubuntu or .rpm for Fedora/Red Hat). You can install it via the terminal with the appropriate command or by double-clicking the file.
+ * Initial Setup (Optional but Useful):
+   * On Windows, the installer usually adds VS Code to your PATH, allowing you to open it from any folder using the code . command in your terminal.
+   * On macOS, you can open the Command Palette (Cmd+Shift+P), type "shell command," and run "Shell Command: Install 'code' command in PATH."
+ * Done! Once installed, you can open Visual Studio Code and start using it.
+After installation, you can customize it with extensions for various programming languages, themes, and additional functionalities as needed.
