@@ -1,21 +1,23 @@
-Here's how you can say that in English, keeping it simple for an A1 level:
-"Right now, I don't have a favorite programming language. I like both backend and frontend development equally. My goal is to become a full stack developer."
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mi Lista de Tareas</h1>
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Añadir nueva tarea...">
+            <button id="addTaskBtn">Agregar</button>
+        </div>
+        <p class="pending-tasks">Tareas pendientes: <span id="pendingCount">0</span></p>
+        <ul id="taskList">
+            </ul>
+    </div>
 
-
-descarga
-Download: Head to the official Visual Studio Code website (code.visualstudio.com) and download the installer that matches your operating system (Windows, macOS, or Linux).
- * Run the Installer: Once downloaded, open the file.
-   * Windows: It's an .exe file. Follow the wizard steps, accepting the terms and conditions.
-   * macOS: It's usually a .zip or .dmg file. If it's a .zip, unzip it and drag the application to your "Applications" folder. If it's a .dmg, open it and drag the application to "Applications."
-   * Linux: This depends on your distribution (typically .deb for Debian/Ubuntu or .rpm for Fedora/Red Hat). You can install it via the terminal with the appropriate command or by double-clicking the file.
- * Initial Setup (Optional but Useful):
-   * On Windows, the installer usually adds VS Code to your PATH, allowing you to open it from any folder using the code . command in your terminal.
-   * On macOS, you can open the Command Palette (Cmd+Shift+P), type "shell command," and run "Shell Command: Install 'code' command in PATH."
- * Done! Once installed, you can open Visual Studio Code and start using it.
-After installation, you can customize it with extensions for various programming languages, themes, and additional functionalities as needed.
-
-
-dream trip to Japan
-
-This trip will be more than just a holiday. It will be a really, really exciting chance for me. I want to experience a place that I find very interesting. This is because it has big social differences, which makes me curious.
-If I can make this dream come true, it will be a very good and special experience for me. It will allow me to explore a new culture. This culture makes my imagination work a lot – more than any other place I know. I really want to see and learn about it.
+    <script src="script.js"></script>
+</body>
+</html>
