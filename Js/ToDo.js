@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskText = taskInput.value.trim();
 
         if (taskText === '') {
-            alert('¡Por favor, escribe una tarea antes de agregarla!');
+            alert('Por favor, escribe una tarea');
             return;
         }
 
