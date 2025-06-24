@@ -4,18 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskList = document.getElementById('taskList');
     const pendingCountSpan = document.getElementById('pendingCount');
 
-    // Cargar tareas de localStorage al iniciar
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    // Función para guardar tareas en localStorage
     const saveTasks = () => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
         updatePendingCount();
     };
 
-    // Función para renderizar las tareas en la lista
     const renderTasks = () => {
-        taskList.innerHTML = ''; // Limpiar la lista antes de renderizar
+        taskList.innerHTML = '';
         tasks.forEach((task, index) => {
             const listItem = document.createElement('li');
             listItem.classList.add('task-item');
@@ -43,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para agregar una nueva tarea
     const addTask = () => {
-        const taskText = taskInput.value.trim(); // Elimina espacios en blanco al inicio y final
+        const taskText = taskInput.value.trim();
 
         if (taskText === '') {
             alert('¡Por favor, escribe una tarea antes de agregarla!');
@@ -51,15 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         tasks.push({ text: taskText, completed: false });
-        taskInput.value = ''; // Limpiar el input
+        taskInput.value = ''; 
         saveTasks();
         renderTasks();
     };
 
-    // Event Listeners
     addTaskBtn.addEventListener('click', addTask);
 
-    // Permitir agregar tareas presionando Enter
+    // Permite agregar tareas presionando Enter
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             addTask();
@@ -69,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     taskList.addEventListener('click', (e) => {
         const target = e.target;
 
-        // Marcar tarea como completada/incompleta
+        // Marca tarea como completada o incompleta
         if (target.classList.contains('complete-btn')) {
             const index = parseInt(target.dataset.index);
             tasks[index].completed = !tasks[index].completed;
@@ -77,15 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTasks();
         }
 
-        // Eliminar tarea
+        // Elimina tarea
         if (target.classList.contains('delete-btn')) {
             const index = parseInt(target.dataset.index);
-            tasks.splice(index, 1); // Elimina 1 elemento desde el índice
+            tasks.splice(index, 1); 
             saveTasks();
             renderTasks();
         }
     });
 
-    // Renderizar las tareas iniciales al cargar la página
+    // Renderiza las tareas iniciales al cargar la página
     renderTasks();
 });
