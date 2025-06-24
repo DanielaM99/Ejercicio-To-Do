@@ -1,51 +1,51 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #6060a8b5;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinea al inicio para que no esté pegado al centro */
+    align-items: flex-start;
     min-height: 100vh;
-    margin: 20px;
+    margin: 50px;
     box-sizing: border-box;
 }
 
 .container {
     background-color: #fff;
-    padding: 30px;
+    padding: 3em;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     width: 100%;
     max-width: 500px;
     text-align: center;
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 25px;
+    color: #000;
+    margin-bottom: 30px;
 }
 
 .input-section {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 #taskInput {
     flex-grow: 1;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #969494;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1em;
     outline: none;
 }
 
 #taskInput:focus {
-    border-color: #007bff;
+    border-color: #000;
 }
 
 #addTaskBtn {
-    background-color: #007bff;
+    background-color: #0f27e1c0;
     color: white;
-    border: none;
+    border-color: #363636a9;
     padding: 12px 20px;
     border-radius: 5px;
     margin-left: 10px;
@@ -55,19 +55,19 @@ h1 {
 }
 
 #addTaskBtn:hover {
-    background-color: #0056b3;
+    background-color: #0000b3;
 }
 
 .pending-tasks {
     text-align: left;
-    color: #555;
+    color: #313131;
     margin-bottom: 15px;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 #pendingCount {
     font-weight: bold;
-    color: #007bff;
+    color: #2368b0a3;
 }
 
 #taskList {
@@ -77,8 +77,8 @@ h1 {
 }
 
 #taskList li {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
+    background-color: #d6d6d66b;
+    border: 1px solid #89898992;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -86,13 +86,13 @@ h1 {
     align-items: center;
     justify-content: space-between;
     transition: background-color 0.3s ease;
-    word-break: break-word; /* Asegura que el texto largo se ajuste */
+    word-break: break-word;
 }
 
 #taskList li.completed {
-    background-color: #e9ffe9;
+    background-color: #d0f3d0db;
     text-decoration: line-through;
-    color: #888;
+    color: #0f6809;
 }
 
 #taskList li .task-text {
@@ -109,27 +109,3 @@ h1 {
     transition: color 0.3s ease;
 }
 
-#taskList li .complete-btn {
-    color: #28a745; /* Verde */
-}
-
-#taskList li .complete-btn:hover {
-    color: #218838;
-}
-
-#taskList li .delete-btn {
-    color: #dc3545; /* Rojo */
-}
-
-#taskList li .delete-btn:hover {
-    color: #c82333;
-}
-
-/* Estilos para el texto de la tarea completada */
-#taskList li.completed .complete-btn {
-    color: #888; /* Cambia el color del botón "completar" cuando la tarea está completada */
-}
-
-#taskList li.completed .complete-btn:hover {
-    color: #666;
-}
