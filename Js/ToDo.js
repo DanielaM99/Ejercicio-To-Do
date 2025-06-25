@@ -32,18 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePendingCount();
     };
 
-    // Función para actualizar el contador de tareas pendientes
+    // Function to update the pending task counter
     const updatePendingCount = () => {
         const pendingTasks = tasks.filter(task => !task.completed).length;
         pendingCountSpan.textContent = pendingTasks;
     };
 
-    // Función para agregar una nueva tarea
+    // Function to add a new task
     const addTask = () => {
         const taskText = taskInput.value.trim();
 
         if (taskText === '') {
-            alert('Por favor, escribe una tarea');
+            alert('Please, write an assignment');
             return;
         }
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addTaskBtn.addEventListener('click', addTask);
 
-    // Permite agregar tareas presionando Enter
+    // Allows you to add tasks by pressing Enter
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             addTask();
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     taskList.addEventListener('click', (e) => {
         const target = e.target;
 
-        // Marca tarea como completada o incompleta
+        // Mark task as completed or incomplete
         if (target.classList.contains('complete-btn')) {
             const index = parseInt(target.dataset.index);
             tasks[index].completed = !tasks[index].completed;
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTasks();
         }
 
-        // Elimina tarea
+        // Delete task
         if (target.classList.contains('delete-btn')) {
             const index = parseInt(target.dataset.index);
             tasks.splice(index, 1); 
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Renderiza las tareas iniciales al cargar la página
+    // Renders initial tasks on page load
     renderTasks();
 });
+
